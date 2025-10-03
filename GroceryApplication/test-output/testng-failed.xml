@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testScripts.LoginTest">
+      <class name="testScripts.HomeTest">
         <methods>
+          <include name="verifyLogoutUponClickingLogout"/>
           <include name="initializeBrowser"/>
-          <include name="driverClose"/>
-          <include name="verifyLoginValidUserNameInvalidPassword"/>
+          <include name="driverQuit"/>
         </methods>
-      </class> <!-- testScripts.LoginTest -->
+      </class> <!-- testScripts.HomeTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
