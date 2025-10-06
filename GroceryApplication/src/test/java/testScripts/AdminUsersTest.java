@@ -10,6 +10,7 @@ import pages.AdminUsersPage;
 import pages.HomePage;
 import pages.LoginPage;
 import utilities.ExcelUtility;
+import utilities.RandomDataUtility;
 
 public class AdminUsersTest extends BaseClass {
 	
@@ -25,8 +26,9 @@ public class AdminUsersTest extends BaseClass {
 		HomePage home= new HomePage(driver);
 		home.moreInfoLinkClick();
 		AdminUsersPage admin= new AdminUsersPage(driver);
-		String userNameVal = ExcelUtility.getStringData(0, 0, "AdminUserPage");
-		String passwordVal = ExcelUtility.getStringData(0, 1, "AdminUserPage");
+		RandomDataUtility random= new RandomDataUtility();
+		String userNameVal = random.createRandomUserName();
+		String passwordVal = random.createRandomPassword();
 		String typeVal=ExcelUtility.getStringData(0, 2, "AdminUserPage");
 		admin.newBtnClick();
 		admin.enterUsernameOnUsernameField(userNameVal);

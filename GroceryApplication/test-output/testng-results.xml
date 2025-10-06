@@ -2,31 +2,31 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-10-06T14:46:02 BST" name="Default suite" finished-at="2025-10-06T14:46:08 BST" duration-ms="6034">
+  <suite started-at="2025-10-06T15:55:18 BST" name="Default suite" finished-at="2025-10-06T15:55:26 BST" duration-ms="8569">
     <groups>
     </groups>
-    <test started-at="2025-10-06T14:46:02 BST" name="Default test" finished-at="2025-10-06T14:46:08 BST" duration-ms="6034">
-      <class name="testScripts.AdminUsersTest">
-        <test-method is-config="true" signature="initializeBrowser()[pri:0, instance:testScripts.AdminUsersTest@459e9125]" started-at="2025-10-06T14:46:02 BST" name="initializeBrowser" finished-at="2025-10-06T14:46:05 BST" duration-ms="2987" status="PASS">
+    <test started-at="2025-10-06T15:55:18 BST" name="Default test" finished-at="2025-10-06T15:55:26 BST" duration-ms="8569">
+      <class name="testScripts.LoginTest">
+        <test-method is-config="true" signature="initializeBrowser()[pri:0, instance:testScripts.LoginTest@1aafa419]" started-at="2025-10-06T15:55:18 BST" name="initializeBrowser" finished-at="2025-10-06T15:55:23 BST" duration-ms="4958" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initializeBrowser -->
-        <test-method signature="verifyUserIsAbleToSearchUser()[pri:0, instance:testScripts.AdminUsersTest@459e9125]" started-at="2025-10-06T14:46:05 BST" name="verifyUserIsAbleToSearchUser" finished-at="2025-10-06T14:46:08 BST" duration-ms="3015" status="PASS">
+        <test-method signature="verifyLoginWithInvalidCredentials()[pri:0, instance:testScripts.LoginTest@1aafa419]" started-at="2025-10-06T15:55:23 BST" name="verifyLoginWithInvalidCredentials" finished-at="2025-10-06T15:55:26 BST" duration-ms="3471" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyUserIsAbleToSearchUser -->
-        <test-method is-config="true" signature="driverQuit(org.testng.ITestResult)[pri:0, instance:testScripts.AdminUsersTest@459e9125]" started-at="2025-10-06T14:46:08 BST" name="driverQuit" finished-at="2025-10-06T14:46:08 BST" duration-ms="0" status="PASS">
+        </test-method> <!-- verifyLoginWithInvalidCredentials -->
+        <test-method is-config="true" signature="driverQuit(org.testng.ITestResult)[pri:0, instance:testScripts.LoginTest@1aafa419]" started-at="2025-10-06T15:55:26 BST" name="driverQuit" finished-at="2025-10-06T15:55:26 BST" duration-ms="20" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=verifyUserIsAbleToSearchUser status=SUCCESS method=AdminUsersTest.verifyUserIsAbleToSearchUser()[pri:0, instance:testScripts.AdminUsersTest@459e9125] output={null}]]]>
+                <![CDATA[[TestResult name=verifyLoginWithInvalidCredentials status=SUCCESS method=LoginTest.verifyLoginWithInvalidCredentials()[pri:0, instance:testScripts.LoginTest@1aafa419] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- driverQuit -->
-      </class> <!-- testScripts.AdminUsersTest -->
+      </class> <!-- testScripts.LoginTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
