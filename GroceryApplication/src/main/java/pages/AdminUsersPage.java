@@ -33,25 +33,25 @@ public class AdminUsersPage {
 	@FindBy(id="un") WebElement searchUserName;
 	@FindBy(id="ut") WebElement searchDrpDwn;
 	@FindBy(xpath="//button[@value='sr']") WebElement srchBtn;
-	
+	@FindBy(xpath="//table[@class='table table-bordered table-hover table-sm']/tbody/tr[1]/td[1]") WebElement searchUser;
 	@FindBy(xpath="//i[@class='ace-icon fa fa-sync-alt']") WebElement resetBtn;
 	
 	public void newBtnClick()
 	{
 		newBtn.click();
 	}
-	public void enterUsernameOnUsernameField()
+	public void enterUsernameOnUsernameField(String usernameVal)
 	{
-		username.sendKeys("john.doe3");
+		username.sendKeys(usernameVal);
 	}
-	public void enterPasswordOnPasswordField()
+	public void enterPasswordOnPasswordField(String pass)
 	{
-		password.sendKeys("johndoe");
+		password.sendKeys(pass);
 	}
-	public void selectDrpDwn()
+	public void selectDrpDwn(String drpdwnVal)
 	{
 		Select select = new Select(userTypeDrpDwn);
-		select.selectByValue("partner");
+		select.selectByValue(drpdwnVal);
 	}
 	public void saveBtnClick()
 	{
@@ -70,20 +70,24 @@ public class AdminUsersPage {
 	{
 		searchBtn.click();
 	}
-	public void enterUsernameOnSearchUsernameField()
+	public void enterUsernameOnSearchUsernameField(String usernameVal)
 	{
-		searchUserName.sendKeys("john.doe3");
+		searchUserName.sendKeys(usernameVal);
 	}
-	public void searchDrpDwn()
+	public void searchDrpDwn(String drpdwnVal)
 	{
 		Select select = new Select(searchDrpDwn);
-		select.selectByValue("admin");
+		select.selectByValue(drpdwnVal);
 	}
 	public void searchUserBtnClick()
 	{
 		srchBtn.click();
 	}
 	
+	public String searchTable()
+	{
+		return searchUser.getText();
+	}
 	public void resetBtnClick()
 	{
 		resetBtn.click();

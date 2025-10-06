@@ -25,10 +25,13 @@ public class AdminUsersTest extends BaseClass {
 		HomePage home= new HomePage(driver);
 		home.moreInfoLinkClick();
 		AdminUsersPage admin= new AdminUsersPage(driver);
+		String userNameVal = ExcelUtility.getStringData(0, 0, "AdminUserPage");
+		String passwordVal = ExcelUtility.getStringData(0, 1, "AdminUserPage");
+		String typeVal=ExcelUtility.getStringData(0, 2, "AdminUserPage");
 		admin.newBtnClick();
-		admin.enterUsernameOnUsernameField();
-		admin.enterPasswordOnPasswordField();
-		admin.selectDrpDwn();
+		admin.enterUsernameOnUsernameField(userNameVal);
+		admin.enterPasswordOnPasswordField(passwordVal);
+		admin.selectDrpDwn(typeVal);
 		admin.saveBtnClick();
 		//String expected= "×\r\n"+ "Alert!\r\n"+ "User Created Successfully";
 		String actual= admin.AlertDisplayed();
@@ -47,17 +50,20 @@ public class AdminUsersTest extends BaseClass {
 		login.loginBtnClick();
 		HomePage home= new HomePage(driver);
 		home.moreInfoLinkClick();
+		String userNameVal = ExcelUtility.getStringData(0, 0, "AdminUserPage");
+		//String passwordVal = ExcelUtility.getStringData(0, 1, "AdminUserPage");
+		String typeVal=ExcelUtility.getStringData(0, 2, "AdminUserPage");
 		AdminUsersPage admin= new AdminUsersPage(driver);
 		admin.searchBtnClick();
-		admin.enterUsernameOnSearchUsernameField();
-		admin.searchDrpDwn();
+		admin.enterUsernameOnSearchUsernameField(userNameVal);
+		admin.searchDrpDwn(typeVal);
 		admin.searchUserBtnClick();
-		//String expected="https://groceryapp.uniqassosiates.com/admin/user/index?un=&ut=&Search=sr";
-		String actual= admin.actualURL();
+		String expected=userNameVal;
+		String actual= admin.searchTable();
 		System.out.println(actual);
-		boolean val= actual.contains("Search=sr");
-		System.out.println(val);
-		Assert.assertTrue(val,"search not happened");
+		//boolean val= actual.contains("Search=sr");
+		//System.out.println(val);
+		Assert.assertEquals(actual,expected, "search not done successfully");
 	}
 	@Test
 	public void verifyUserIsAbleToReset() throws IOException
@@ -72,7 +78,7 @@ public class AdminUsersTest extends BaseClass {
 		home.moreInfoLinkClick();
 		AdminUsersPage admin= new AdminUsersPage(driver);
 		admin.searchBtnClick();
-		admin.enterUsernameOnSearchUsernameField();
+		admin.enterUsernameOnSearchUsernameField("abcd");
 		admin.resetBtnClick();
 		Boolean resetHappened= admin.IsresetHappen();
 		System.out.println(resetHappened);
