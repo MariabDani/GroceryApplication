@@ -16,6 +16,7 @@ public class HomePage {
 	
 	@FindBy(xpath= "//a[@data-toggle='dropdown']") WebElement adminIcon;
 	@FindBy(xpath="//i[@class='ace-icon fa fa-power-off']") WebElement logoutBtn;
+	@FindBy(xpath="//p[text()='Admin Users']/ancestor::div[@class='small-box bg-info']/a") WebElement moreInfolink;
 	
 	public void adminIconClick()
 	{
@@ -25,6 +26,16 @@ public class HomePage {
 	public void logoutBtnClick()
 	{
 		logoutBtn.click();
+	}
+	
+	public String actualURL()
+	{
+		return driver.getCurrentUrl();
+	}
+	
+	public void moreInfoLinkClick()
+	{
+		moreInfolink.click();
 	}
 
 }

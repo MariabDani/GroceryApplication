@@ -18,6 +18,8 @@ public class LoginPage {
 	@FindBy(name="username") WebElement username;
 	@FindBy(name="password") WebElement password;
 	@FindBy(tagName ="button") WebElement signInBtn;
+	@FindBy(xpath="//p[text()='Dashboard']") WebElement dashBoard;
+	@FindBy(xpath="//div[@class='alert alert-danger alert-dismissible']") WebElement alertbox;
 	
 	
 	public void enterUsernameOnUsernameField(String userNameValue)
@@ -33,5 +35,21 @@ public class LoginPage {
 	public void loginBtnClick()
 	{
 		signInBtn.click();
+	}
+	
+	
+	public boolean isDashBoardDisplayed()
+	{
+		return dashBoard.isDisplayed();
+	}
+	
+	public boolean isAlertboxDisplayed()
+	{
+		return alertbox.isDisplayed();
+	}
+	
+	public String actualURL()
+	{
+		return driver.getCurrentUrl();
 	}
 }

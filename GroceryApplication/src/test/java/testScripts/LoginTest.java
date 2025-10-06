@@ -2,6 +2,7 @@ package testScripts;
 
 import java.io.IOException;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import automationcore.BaseClass;
@@ -19,6 +20,8 @@ public class LoginTest extends BaseClass{
 		login.enterUsernameOnUsernameField(userNameValue);
 		login.enterPasswordOnPasswordField(passwordValue);
 		login.loginBtnClick();
+		boolean dashBoardDisplayed= login.isDashBoardDisplayed();
+		Assert.assertTrue(dashBoardDisplayed, "user unable to login with valid credentials");
 	}
 	
 	@Test
@@ -30,6 +33,9 @@ public class LoginTest extends BaseClass{
 		login.enterUsernameOnUsernameField(userNameValue);
 		login.enterPasswordOnPasswordField(passwordValue);
 		login.loginBtnClick();
+		boolean alertBoxDisplayed=login.isAlertboxDisplayed();
+		System.out.println(alertBoxDisplayed);
+		Assert.assertFalse(!alertBoxDisplayed, "user is able to login with invalid credentials");
 		
 	}
 	
@@ -42,6 +48,8 @@ public class LoginTest extends BaseClass{
 		login.enterUsernameOnUsernameField(userNameValue);
 		login.enterPasswordOnPasswordField(passwordValue);
 		login.loginBtnClick();
+		boolean alertBoxDisplayed= login.isAlertboxDisplayed();
+		Assert.assertTrue(alertBoxDisplayed, "user is able to login with invalid credentials");
 		
 	}
 	
@@ -54,6 +62,10 @@ public class LoginTest extends BaseClass{
 		login.enterUsernameOnUsernameField(userNameValue);
 		login.enterPasswordOnPasswordField(passwordValue);
 		login.loginBtnClick();
+		String expected= "https://groceryapp.uniqassosiates.com/admin/login";
+		String actual= login.actualURL();
+		System.out.println(actual);
+		Assert.assertEquals(actual, expected, "user is able to login with invalid credentials");
 	}
 
 }
