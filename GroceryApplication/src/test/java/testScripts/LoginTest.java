@@ -10,7 +10,7 @@ import pages.LoginPage;
 import utilities.ExcelUtility;
 
 public class LoginTest extends BaseClass{
-	@Test
+	@Test(priority = 1, description = "verifying login with valid credentials", groups = {"smoke"})
 	public void verifyLoginWithValidCredentials() throws IOException
 	{
 
@@ -24,7 +24,7 @@ public class LoginTest extends BaseClass{
 		Assert.assertTrue(dashBoardDisplayed, "user unable to login with valid credentials");
 	}
 	
-	@Test
+	@Test(priority = 2, description = "verifying login with invalid credentials", groups = {"smoke"})
 	public void verifyLoginWithInvalidCredentials() throws IOException {
 		
 		String userNameValue = ExcelUtility.getStringData(1, 0, "LoginPage");
@@ -39,7 +39,7 @@ public class LoginTest extends BaseClass{
 		
 	}
 	
-	@Test
+	@Test(priority = 3, description = "verifying login with valid username and invalid password")
 	public void verifyLoginValidUserNameInvalidPassword() throws IOException {
 		
 		String userNameValue = ExcelUtility.getStringData(2, 0, "LoginPage");
@@ -53,7 +53,7 @@ public class LoginTest extends BaseClass{
 		
 	}
 	
-	@Test
+	@Test(priority = 4, description = "verifying login with valid username and invalid password")
 	public void verifyLoginInvalidUserNameValidPassword() throws IOException {
 		
 		String userNameValue = ExcelUtility.getStringData(3, 0, "LoginPage");
