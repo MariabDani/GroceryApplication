@@ -3,6 +3,7 @@ package testScripts;
 import java.io.IOException;
 
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import automationcore.BaseClass;
@@ -39,7 +40,7 @@ public class LoginTest extends BaseClass{
 		
 	}
 	
-	@Test(priority = 3, description = "verifying login with valid username and invalid password")
+	@Test(priority = 3, description = "verifying login with valid username and invalid password",retryAnalyzer = retry.Retry.class)
 	public void verifyLoginValidUserNameInvalidPassword() throws IOException {
 		
 		String userNameValue = ExcelUtility.getStringData(2, 0, "LoginPage");
@@ -53,11 +54,11 @@ public class LoginTest extends BaseClass{
 		
 	}
 	
-	@Test(priority = 4, description = "verifying login with valid username and invalid password")
-	public void verifyLoginInvalidUserNameValidPassword() throws IOException {
+	@Test(priority = 4, description = "verifying login with valid username and invalid password",dataProvider = "loginProvider")
+	public void verifyLoginInvalidUserNameValidPassword(String userNameValue, String passwordValue) throws IOException {
 		
-		String userNameValue = ExcelUtility.getStringData(3, 0, "LoginPage");
-		String passwordValue = ExcelUtility.getStringData(3, 1, "LoginPage");
+		//String userNameValue = ExcelUtility.getStringData(3, 0, "LoginPage");
+		//String passwordValue = ExcelUtility.getStringData(3, 1, "LoginPage");
 		LoginPage login= new LoginPage(driver);
 		login.enterUsernameOnUsernameField(userNameValue);
 		login.enterPasswordOnPasswordField(passwordValue);
@@ -67,5 +68,13 @@ public class LoginTest extends BaseClass{
 		System.out.println(actual);
 		Assert.assertEquals(actual, expected, "user is able to login with invalid credentials");
 	}
+	 @DataProvider(name = "loginProvider")
+	 public Object[][] getDataFromDataProvider() throws IOException {
+
+	 return new Object[][] { new Object[] { "admin", "admin22" }, new Object[] { "admin123", "123" },
+	 // new Object[] {ExcelUtility.getStringData(3,
+	 // 0,"Login"),ExcelUtility.getStringData(3,1 ,"Login")}
+	 };
+	 }
 
 }

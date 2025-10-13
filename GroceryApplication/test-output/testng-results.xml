@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="3" passed="2" failed="0" skipped="1">
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-10-13T14:50:17 BST" name="CrossBrowser" finished-at="2025-10-13T14:50:34 BST" duration-ms="16995">
+  <suite started-at="2025-10-13T15:33:04 BST" name="Suite" finished-at="2025-10-13T15:33:09 BST" duration-ms="4740">
     <groups>
     </groups>
-    <test started-at="2025-10-13T14:50:17 BST" name="ChromeTest" finished-at="2025-10-13T14:50:23 BST" duration-ms="6064">
-      <class name="testScripts.HomeTest">
-        <test-method is-config="true" signature="initializeBrowser(java.lang.String)[pri:0, instance:testScripts.HomeTest@62379589]" started-at="2025-10-13T14:50:17 BST" name="initializeBrowser" finished-at="2025-10-13T14:50:21 BST" duration-ms="4509" status="PASS">
+    <test started-at="2025-10-13T15:33:04 BST" name="Test" finished-at="2025-10-13T15:33:09 BST" duration-ms="4740">
+      <class name="testScripts.LoginTest">
+        <test-method is-config="true" signature="initializeBrowser(java.lang.String)[pri:0, instance:testScripts.LoginTest@21be3395]" started-at="2025-10-13T15:33:04 BST" name="initializeBrowser" finished-at="2025-10-13T15:33:07 BST" duration-ms="2341" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -18,198 +18,72 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initializeBrowser -->
-        <test-method signature="verifyLogoutUponClickingLogout()[pri:0, instance:testScripts.HomeTest@62379589]" started-at="2025-10-13T14:50:21 BST" name="verifyLogoutUponClickingLogout" finished-at="2025-10-13T14:50:23 BST" duration-ms="1522" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyLogoutUponClickingLogout -->
-        <test-method is-config="true" signature="driverQuit(org.testng.ITestResult)[pri:0, instance:testScripts.HomeTest@62379589]" started-at="2025-10-13T14:50:23 BST" name="driverQuit" finished-at="2025-10-13T14:50:23 BST" duration-ms="1" status="PASS">
+        <test-method signature="verifyLoginInvalidUserNameValidPassword(java.lang.String,java.lang.String)[pri:4, instance:testScripts.LoginTest@21be3395]" started-at="2025-10-13T15:33:07 BST" name="verifyLoginInvalidUserNameValidPassword" description="verifying login with valid username and invalid password" data-provider="loginProvider" finished-at="2025-10-13T15:33:07 BST" duration-ms="273" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=verifyLogoutUponClickingLogout status=SUCCESS method=HomeTest.verifyLogoutUponClickingLogout()[pri:0, instance:testScripts.HomeTest@62379589] output={null}]]]>
+                <![CDATA[admin]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[admin22]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyLoginInvalidUserNameValidPassword -->
+        <test-method is-config="true" signature="driverQuit(org.testng.ITestResult)[pri:0, instance:testScripts.LoginTest@21be3395]" started-at="2025-10-13T15:33:07 BST" name="driverQuit" finished-at="2025-10-13T15:33:07 BST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyLoginInvalidUserNameValidPassword status=SUCCESS method=LoginTest.verifyLoginInvalidUserNameValidPassword(java.lang.String,java.lang.String)[pri:4, instance:testScripts.LoginTest@21be3395] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- driverQuit -->
-      </class> <!-- testScripts.HomeTest -->
-    </test> <!-- ChromeTest -->
-    <test started-at="2025-10-13T14:50:23 BST" name="FirefoxTest" finished-at="2025-10-13T14:50:28 BST" duration-ms="5025">
-      <class name="testScripts.HomeTest">
-        <test-method is-config="true" signature="initializeBrowser(java.lang.String)[pri:0, instance:testScripts.HomeTest@23348b5d]" started-at="2025-10-13T14:50:23 BST" name="initializeBrowser" finished-at="2025-10-13T14:50:27 BST" duration-ms="4070" status="PASS">
+        <test-method is-config="true" signature="initializeBrowser(java.lang.String)[pri:0, instance:testScripts.LoginTest@21be3395]" started-at="2025-10-13T15:33:07 BST" name="initializeBrowser" finished-at="2025-10-13T15:33:09 BST" duration-ms="1640" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[Firefox]]>
+                <![CDATA[Chrome]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initializeBrowser -->
-        <test-method signature="verifyLogoutUponClickingLogout()[pri:0, instance:testScripts.HomeTest@23348b5d]" started-at="2025-10-13T14:50:27 BST" name="verifyLogoutUponClickingLogout" finished-at="2025-10-13T14:50:28 BST" duration-ms="950" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyLogoutUponClickingLogout -->
-        <test-method is-config="true" signature="driverQuit(org.testng.ITestResult)[pri:0, instance:testScripts.HomeTest@23348b5d]" started-at="2025-10-13T14:50:28 BST" name="driverQuit" finished-at="2025-10-13T14:50:28 BST" duration-ms="4" status="PASS">
+        <test-method signature="verifyLoginInvalidUserNameValidPassword(java.lang.String,java.lang.String)[pri:4, instance:testScripts.LoginTest@21be3395]" started-at="2025-10-13T15:33:09 BST" name="verifyLoginInvalidUserNameValidPassword" description="verifying login with valid username and invalid password" data-provider="loginProvider" finished-at="2025-10-13T15:33:09 BST" duration-ms="435" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=verifyLogoutUponClickingLogout status=SUCCESS method=HomeTest.verifyLogoutUponClickingLogout()[pri:0, instance:testScripts.HomeTest@23348b5d] output={null}]]]>
+                <![CDATA[admin123]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[123]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyLoginInvalidUserNameValidPassword -->
+        <test-method is-config="true" signature="driverQuit(org.testng.ITestResult)[pri:0, instance:testScripts.LoginTest@21be3395]" started-at="2025-10-13T15:33:09 BST" name="driverQuit" finished-at="2025-10-13T15:33:09 BST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyLoginInvalidUserNameValidPassword status=SUCCESS method=LoginTest.verifyLoginInvalidUserNameValidPassword(java.lang.String,java.lang.String)[pri:4, instance:testScripts.LoginTest@21be3395] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- driverQuit -->
-      </class> <!-- testScripts.HomeTest -->
-    </test> <!-- FirefoxTest -->
-    <test started-at="2025-10-13T14:50:28 BST" name="EdgeTest" finished-at="2025-10-13T14:50:34 BST" duration-ms="5868">
-      <class name="testScripts.HomeTest">
-        <test-method is-config="true" signature="initializeBrowser(java.lang.String)[pri:0, instance:testScripts.HomeTest@37ceb1df]" started-at="2025-10-13T14:50:28 BST" name="initializeBrowser" finished-at="2025-10-13T14:50:34 BST" duration-ms="5841" status="FAIL">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Edge]]>
-              </value>
-            </param>
-          </params>
-          <exception class="io.github.bonigarcia.wdm.config.WebDriverManagerException">
-            <message>
-              <![CDATA[io.github.bonigarcia.wdm.config.WebDriverManagerException: java.lang.IllegalArgumentException: URI is not absolute]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[io.github.bonigarcia.wdm.config.WebDriverManagerException: io.github.bonigarcia.wdm.config.WebDriverManagerException: java.lang.IllegalArgumentException: URI is not absolute
-at io.github.bonigarcia.wdm.WebDriverManager.handleException(WebDriverManager.java:1447)
-at io.github.bonigarcia.wdm.WebDriverManager.manage(WebDriverManager.java:1210)
-at io.github.bonigarcia.wdm.WebDriverManager.fallback(WebDriverManager.java:1463)
-at io.github.bonigarcia.wdm.WebDriverManager.handleException(WebDriverManager.java:1441)
-at io.github.bonigarcia.wdm.WebDriverManager.manage(WebDriverManager.java:1210)
-at io.github.bonigarcia.wdm.WebDriverManager.setup(WebDriverManager.java:429)
-at automationcore.BaseClass.initializeBrowser(BaseClass.java:31)
-at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
-at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
-at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
-at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:833)
-at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:600)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
-at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
-at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
-at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
-at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-at org.testng.TestRunner.privateRun(TestRunner.java:739)
-at org.testng.TestRunner.run(TestRunner.java:614)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
-at org.testng.SuiteRunner.run(SuiteRunner.java:312)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
-at org.testng.TestNG.runSuites(TestNG.java:1112)
-at org.testng.TestNG.run(TestNG.java:1079)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-Caused by: io.github.bonigarcia.wdm.config.WebDriverManagerException: java.lang.IllegalArgumentException: URI is not absolute
-at io.github.bonigarcia.wdm.managers.EdgeDriverManager.getDriversFromXml(EdgeDriverManager.java:308)
-at io.github.bonigarcia.wdm.managers.EdgeDriverManager.getDriverUrls(EdgeDriverManager.java:138)
-at io.github.bonigarcia.wdm.WebDriverManager.createUrlHandler(WebDriverManager.java:1468)
-at io.github.bonigarcia.wdm.WebDriverManager.download(WebDriverManager.java:1298)
-at io.github.bonigarcia.wdm.WebDriverManager.manage(WebDriverManager.java:1204)
-... 35 more
-Caused by: java.lang.IllegalArgumentException: URI is not absolute
-at java.base/java.net.URL.of(URL.java:862)
-at java.base/java.net.URI.toURL(URI.java:1172)
-at io.github.bonigarcia.wdm.managers.EdgeDriverManager.getDriversFromXml(EdgeDriverManager.java:300)
-... 39 more
-]]>
-            </full-stacktrace>
-          </exception> <!-- io.github.bonigarcia.wdm.config.WebDriverManagerException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- initializeBrowser -->
-        <test-method signature="verifyLogoutUponClickingLogout()[pri:0, instance:testScripts.HomeTest@37ceb1df]" started-at="2025-10-13T14:50:34 BST" name="verifyLogoutUponClickingLogout" finished-at="2025-10-13T14:50:34 BST" duration-ms="0" status="SKIP">
-          <exception class="io.github.bonigarcia.wdm.config.WebDriverManagerException">
-            <message>
-              <![CDATA[io.github.bonigarcia.wdm.config.WebDriverManagerException: java.lang.IllegalArgumentException: URI is not absolute]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[io.github.bonigarcia.wdm.config.WebDriverManagerException: io.github.bonigarcia.wdm.config.WebDriverManagerException: java.lang.IllegalArgumentException: URI is not absolute
-at io.github.bonigarcia.wdm.WebDriverManager.handleException(WebDriverManager.java:1447)
-at io.github.bonigarcia.wdm.WebDriverManager.manage(WebDriverManager.java:1210)
-at io.github.bonigarcia.wdm.WebDriverManager.fallback(WebDriverManager.java:1463)
-at io.github.bonigarcia.wdm.WebDriverManager.handleException(WebDriverManager.java:1441)
-at io.github.bonigarcia.wdm.WebDriverManager.manage(WebDriverManager.java:1210)
-at io.github.bonigarcia.wdm.WebDriverManager.setup(WebDriverManager.java:429)
-at automationcore.BaseClass.initializeBrowser(BaseClass.java:31)
-at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
-at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
-at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
-at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:833)
-at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:600)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
-at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
-at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
-at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
-at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-at org.testng.TestRunner.privateRun(TestRunner.java:739)
-at org.testng.TestRunner.run(TestRunner.java:614)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
-at org.testng.SuiteRunner.run(SuiteRunner.java:312)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
-at org.testng.TestNG.runSuites(TestNG.java:1112)
-at org.testng.TestNG.run(TestNG.java:1079)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-Caused by: io.github.bonigarcia.wdm.config.WebDriverManagerException: java.lang.IllegalArgumentException: URI is not absolute
-at io.github.bonigarcia.wdm.managers.EdgeDriverManager.getDriversFromXml(EdgeDriverManager.java:308)
-at io.github.bonigarcia.wdm.managers.EdgeDriverManager.getDriverUrls(EdgeDriverManager.java:138)
-at io.github.bonigarcia.wdm.WebDriverManager.createUrlHandler(WebDriverManager.java:1468)
-at io.github.bonigarcia.wdm.WebDriverManager.download(WebDriverManager.java:1298)
-at io.github.bonigarcia.wdm.WebDriverManager.manage(WebDriverManager.java:1204)
-... 35 more
-Caused by: java.lang.IllegalArgumentException: URI is not absolute
-at java.base/java.net.URL.of(URL.java:862)
-at java.base/java.net.URI.toURL(URI.java:1172)
-at io.github.bonigarcia.wdm.managers.EdgeDriverManager.getDriversFromXml(EdgeDriverManager.java:300)
-... 39 more
-]]>
-            </full-stacktrace>
-          </exception> <!-- io.github.bonigarcia.wdm.config.WebDriverManagerException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyLogoutUponClickingLogout -->
-        <test-method is-config="true" signature="driverQuit(org.testng.ITestResult)[pri:0, instance:testScripts.HomeTest@37ceb1df]" started-at="2025-10-13T14:50:34 BST" name="driverQuit" finished-at="2025-10-13T14:50:34 BST" duration-ms="5" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=verifyLogoutUponClickingLogout status=SKIP method=HomeTest.verifyLogoutUponClickingLogout()[pri:0, instance:testScripts.HomeTest@37ceb1df] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- driverQuit -->
-      </class> <!-- testScripts.HomeTest -->
-    </test> <!-- EdgeTest -->
-  </suite> <!-- CrossBrowser -->
+      </class> <!-- testScripts.LoginTest -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
 </testng-results>
