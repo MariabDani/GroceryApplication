@@ -2,7 +2,6 @@ package pages;
 
 import java.time.Duration;
 
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -12,12 +11,16 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import utilities.WaitUtility;
+
 public class AdminUsersPage {
 	
 	public WebDriver driver;
+	WaitUtility wait;
 	public AdminUsersPage(WebDriver driver)
 	{
 		this.driver=driver;
+		this.wait  = new WaitUtility();     
 		PageFactory.initElements(driver, this);
 	}
 	
@@ -35,6 +38,7 @@ public class AdminUsersPage {
 	@FindBy(xpath="//button[@value='sr']") WebElement srchBtn;
 	@FindBy(xpath="//table[@class='table table-bordered table-hover table-sm']/tbody/tr[1]/td[1]") WebElement searchUser;
 	@FindBy(xpath="//i[@class='ace-icon fa fa-sync-alt']") WebElement resetBtn;
+	@FindBy(xpath="//div[contains(@class,'alert') and contains(@class,'alert-dismissible')]") WebElement alert;
 	
 	public void newBtnClick()
 	{
@@ -59,11 +63,12 @@ public class AdminUsersPage {
 	}
 	public String AlertDisplayed()
 	{
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-		WebElement alertBox = wait.until(ExpectedConditions.visibilityOfElementLocated(
-		    By.xpath("//div[contains(@class,'alert') and contains(@class,'alert-dismissible')]")
-		));
-		return alertBox.getText();
+		wait.waitUntilElementIsVisible(driver, alert);
+//		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+//		WebElement alertBox = wait.until(ExpectedConditions.visibilityOfElementLocated(
+//		    By.xpath("//div[contains(@class,'alert') and contains(@class,'alert-dismissible')]")
+//		));
+		return alert.getText();
 	}
 	
 	public void searchBtnClick()
@@ -94,8 +99,10 @@ public class AdminUsersPage {
 	}
 	
 	public boolean IsresetHappen() {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-		wait.until(ExpectedConditions.invisibilityOf(searchUserName));
+		wait.waitUntilElementIsInvisible(driver, searchUserName);
+		//WaitUtility.waitUntilElementIsInvisible(driver,searchUserName);
+		//WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		//wait.until(ExpectedConditions.invisibilityOf(searchUserName));
 		return searchUserName.isDisplayed();
 	}
 

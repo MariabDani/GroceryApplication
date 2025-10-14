@@ -6,6 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import automationcore.BaseClass;
+import constants.Constant;
 import pages.AdminUsersPage;
 import pages.HomePage;
 import pages.LoginPage;
@@ -35,10 +36,8 @@ public class AdminUsersTest extends BaseClass {
 		admin.enterPasswordOnPasswordField(passwordVal);
 		admin.selectDrpDwn(typeVal);
 		admin.saveBtnClick();
-		//String expected= "×\r\n"+ "Alert!\r\n"+ "User Created Successfully";
 		String actual= admin.AlertDisplayed();
-		//System.out.println(admin.AlertDisplayed());
-		Assert.assertTrue(actual.contains("User Created Successfully"),"User not added successfully");
+		Assert.assertTrue(actual.contains("User Created Successfully"),Constant.UserNotAddedError);
 		
 	}
 	@Test
@@ -65,7 +64,7 @@ public class AdminUsersTest extends BaseClass {
 		System.out.println(actual);
 		//boolean val= actual.contains("Search=sr");
 		//System.out.println(val);
-		Assert.assertEquals(actual,expected, "search not done successfully");
+		Assert.assertEquals(actual,expected, Constant.UnabletoSearchError);
 	}
 	@Test
 	public void verifyUserIsAbleToReset() throws IOException
@@ -84,7 +83,7 @@ public class AdminUsersTest extends BaseClass {
 		admin.resetBtnClick();
 		Boolean resetHappened= admin.IsresetHappen();
 		System.out.println(resetHappened);
-		Assert.assertFalse(resetHappened,"reset has not happened");
+		Assert.assertFalse(resetHappened,Constant.UnAbletoResetError);
 	}
 
 }

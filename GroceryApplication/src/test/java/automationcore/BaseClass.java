@@ -1,7 +1,9 @@
 package automationcore;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.time.Duration;
+import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -12,16 +14,36 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 
+import constants.Constant;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import utilities.ScreenshotUtility;
 
 public class BaseClass {
+	Properties prop;
+	FileInputStream fin;
 	public WebDriver driver;
 
 	@BeforeMethod(alwaysRun=true)
 	@Parameters("browsers")
-	public void initializeBrowser(String browsers)
+	public void initializeBrowser(String browsers) throws IOException
 	{
+		//System.out.println("Step 1: Starting browser initialization");
+		prop= new Properties();
+		fin = new FileInputStream(Constant.ConfigFile);
+		prop.load(fin);
+//		System.out.println(prop.getProperty("url"));
+//		try {
+//		    prop = new Properties();
+//		    System.out.println("ConfigFile path: " + Constant.ConfigFile);
+//		    fin = new FileInputStream(Constant.ConfigFile);    // likely failing here
+//		    prop.load(fin);                                    // or here
+//		    System.out.println("Loaded props. url=" + prop.getProperty("url"));
+//		} catch (Exception e) {
+//		    e.printStackTrace(); // this will finally show the stack trace in console
+//		    throw e;             // rethrow so TestNG marks it properly
+//		} finally {
+//		    if (fin != null) fin.close();
+//		}
 		if (browsers.equalsIgnoreCase("Chrome")) {
 			driver = new ChromeDriver();
 		} else if (browsers.equalsIgnoreCase("Firefox")) {
@@ -32,7 +54,7 @@ public class BaseClass {
 			driver = new EdgeDriver();
 		}
 
-		driver.get("https://groceryapp.uniqassosiates.com/admin/login");
+		driver.get(prop.getProperty("url"));
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5) );
 		

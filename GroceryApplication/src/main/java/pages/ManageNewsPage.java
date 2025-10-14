@@ -10,12 +10,16 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import utilities.WaitUtility;
+
 public class ManageNewsPage{
 	
 	public WebDriver driver;
+	WaitUtility wait;
 	public ManageNewsPage(WebDriver driver)
 	{
 		this.driver=driver;
+		this.wait  = new WaitUtility();
 		PageFactory.initElements(driver, this);
 	}
 	@FindBy(xpath="//a[@onclick='click_button(1)']") WebElement newBtn;
@@ -25,6 +29,7 @@ public class ManageNewsPage{
 	@FindBy(xpath="//input[@name='un']") WebElement SearchTitleTxt;
 	@FindBy(xpath="//button[@type='submit']") WebElement SearchNews;
 	@FindBy(xpath="//a[@onclick='click_button(2)']") WebElement searchNews;
+	@FindBy(xpath="//div[contains(@class,'alert') and contains(@class,'alert-dismissible')]") WebElement alertbox;
 	@FindBy(xpath="//table[@class='table table-bordered table-hover table-sm']/tbody/tr[1]/td[1]") WebElement searchResult;
 	public void newBtnClick()
 	{
@@ -42,11 +47,12 @@ public class ManageNewsPage{
 	}
 	public String AlertDisplayed()
 	{
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
-		WebElement alertBox = wait.until(ExpectedConditions.visibilityOfElementLocated(
-		    By.xpath("//div[contains(@class,'alert') and contains(@class,'alert-dismissible')]")
-		));
-		return alertBox.getText();
+		wait.waitUntilElementIsVisible(driver, alertbox);
+//		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
+//		WebElement alertBox = wait.until(ExpectedConditions.visibilityOfElementLocated(
+//		    By.xpath("//div[contains(@class,'alert') and contains(@class,'alert-dismissible')]")
+//		));
+		return alertbox.getText();
 	}
 	public void searchBtnClick()
 	{

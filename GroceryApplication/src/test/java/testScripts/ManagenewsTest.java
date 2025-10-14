@@ -6,6 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import automationcore.BaseClass;
+import constants.Constant;
 import pages.HomePage;
 import pages.LoginPage;
 import pages.ManageNewsPage;
@@ -30,7 +31,7 @@ public class ManagenewsTest extends BaseClass{
 		news.saveBtnClick();
 		String actual= news.AlertDisplayed();
 		//System.out.println(admin.AlertDisplayed());
-		Assert.assertTrue(actual.contains("News Created Successfully"),"News not added successfully");
+		Assert.assertTrue(actual.contains("News Created Successfully"),Constant.UnabletoAddNewsError);
 		
 		
 	}
@@ -54,6 +55,6 @@ public class ManagenewsTest extends BaseClass{
 		String expected= searchText;
 		String actual = news.searchTable();
 		System.out.println(actual);
-		Assert.assertEquals(actual,expected, "News search was not successfull");
+		Assert.assertEquals(actual,expected, Constant.UnabletoSearchNewsError);
 	}
 }

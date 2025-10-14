@@ -7,6 +7,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import automationcore.BaseClass;
+import constants.Constant;
 import pages.LoginPage;
 import utilities.ExcelUtility;
 
@@ -22,7 +23,7 @@ public class LoginTest extends BaseClass{
 		login.enterPasswordOnPasswordField(passwordValue);
 		login.loginBtnClick();
 		boolean dashBoardDisplayed= login.isDashBoardDisplayed();
-		Assert.assertTrue(dashBoardDisplayed, "user unable to login with valid credentials");
+		Assert.assertTrue(dashBoardDisplayed, Constant.ValidCredentialError);
 	}
 	
 	@Test(priority = 2, description = "verifying login with invalid credentials", groups = {"smoke"})
@@ -36,7 +37,7 @@ public class LoginTest extends BaseClass{
 		login.loginBtnClick();
 		boolean alertBoxDisplayed=login.isAlertboxDisplayed();
 		System.out.println(alertBoxDisplayed);
-		Assert.assertFalse(!alertBoxDisplayed, "user is able to login with invalid credentials");
+		Assert.assertFalse(!alertBoxDisplayed, Constant.InValidCredentialError);
 		
 	}
 	
@@ -50,7 +51,7 @@ public class LoginTest extends BaseClass{
 		login.enterPasswordOnPasswordField(passwordValue);
 		login.loginBtnClick();
 		boolean alertBoxDisplayed= login.isAlertboxDisplayed();
-		Assert.assertTrue(alertBoxDisplayed, "user is able to login with invalid credentials");
+		Assert.assertTrue(alertBoxDisplayed, Constant.InValidPasswordError);
 		
 	}
 	
@@ -66,7 +67,7 @@ public class LoginTest extends BaseClass{
 		String expected= "https://groceryapp.uniqassosiates.com/admin/login";
 		String actual= login.actualURL();
 		System.out.println(actual);
-		Assert.assertEquals(actual, expected, "user is able to login with invalid credentials");
+		Assert.assertEquals(actual, expected, Constant.InValidUsernameError);
 	}
 	 @DataProvider(name = "loginProvider")
 	 public Object[][] getDataFromDataProvider() throws IOException {

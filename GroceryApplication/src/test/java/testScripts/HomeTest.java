@@ -6,6 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import automationcore.BaseClass;
+import constants.Constant;
 import pages.HomePage;
 import pages.LoginPage;
 import utilities.ExcelUtility;
@@ -27,7 +28,7 @@ public class HomeTest extends BaseClass {
 		String expected= "https://groceryapp.uniqassosiates.com/admin/login";
 		String actual= login.actualURL();
 		System.out.println(actual);
-		Assert.assertEquals(actual, expected, "user is unable to logout");
+		Assert.assertEquals(actual, expected, Constant.LogOutError);
 	}
 
 }
