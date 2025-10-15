@@ -1,26 +1,24 @@
 package pages;
 
-import java.time.Duration;
-
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
+import utilities.PageUtility;
 import utilities.WaitUtility;
 
 public class AdminUsersPage {
 	
 	public WebDriver driver;
 	WaitUtility wait;
+	PageUtility page;
 	public AdminUsersPage(WebDriver driver)
 	{
 		this.driver=driver;
 		this.wait  = new WaitUtility();     
+		this.page= new PageUtility();
 		PageFactory.initElements(driver, this);
 	}
 	
@@ -54,9 +52,11 @@ public class AdminUsersPage {
 	}
 	public void selectDrpDwn(String drpdwnVal)
 	{
-		Select select = new Select(userTypeDrpDwn);
-		select.selectByValue(drpdwnVal);
+//		Select select = new Select(userTypeDrpDwn);
+//		select.selectByValue(drpdwnVal);
+		page.selectDropdownWithValue(userTypeDrpDwn, drpdwnVal);
 	}
+	
 	public void saveBtnClick()
 	{
 		saveBtn.click();
@@ -81,8 +81,9 @@ public class AdminUsersPage {
 	}
 	public void searchDrpDwn(String drpdwnVal)
 	{
-		Select select = new Select(searchDrpDwn);
-		select.selectByValue(drpdwnVal);
+//		Select select = new Select(searchDrpDwn);
+//		select.selectByValue(drpdwnVal);
+		page.selectDropdownWithValue(searchDrpDwn, drpdwnVal);
 	}
 	public void searchUserBtnClick()
 	{

@@ -52,7 +52,6 @@ public class AdminUsersTest extends BaseClass {
 		HomePage home= new HomePage(driver);
 		home.moreInfoLinkClick();
 		String userNameVal = ExcelUtility.getStringData(0, 0, "AdminUserPage");
-		//String passwordVal = ExcelUtility.getStringData(0, 1, "AdminUserPage");
 		String typeVal=ExcelUtility.getStringData(0, 2, "AdminUserPage");
 		AdminUsersPage admin= new AdminUsersPage(driver);
 		admin.searchBtnClick();

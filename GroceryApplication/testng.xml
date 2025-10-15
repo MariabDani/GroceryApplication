@@ -11,11 +11,11 @@
 
 	<test thread-count="5" name="Test">
 		<classes>
-			<class name="testScripts.ManagenewsTest">
+			<class name="testScripts.LoginTest">
 				<methods>
-					<include
-						name="verifyUserIsAbleCreateNewNews"></include>
-				</methods>
+					<include name="verifyLoginWithValidCredentials"></include>
+				
+					</methods>
 
 			</class>
 
