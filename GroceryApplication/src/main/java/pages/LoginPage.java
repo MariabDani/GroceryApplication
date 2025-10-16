@@ -26,19 +26,22 @@ public class LoginPage {
 	@FindBy(xpath="//div[@class='alert alert-danger alert-dismissible']") WebElement alertbox;
 	@FindBy(id="remember") WebElement rememberMe;
 	
-	public void enterUsernameOnUsernameField(String userNameValue)
+	public LoginPage enterUsernameOnUsernameField(String userNameValue)
 	{
 		username.sendKeys(userNameValue);
+		return this;
 	}
 
-	public void enterPasswordOnPasswordField(String passwordValue)
+	public LoginPage enterPasswordOnPasswordField(String passwordValue)
 	{
 		password.sendKeys(passwordValue);
+		return this;
 	}
 
-	public void loginBtnClick()
+	public HomePage loginBtnClick()
 	{
 		signInBtn.click();
+		return new HomePage(driver);
 	}
 	
 	

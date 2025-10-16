@@ -12,19 +12,18 @@ import pages.LoginPage;
 import utilities.ExcelUtility;
 
 public class HomeTest extends BaseClass {
+	HomePage home;
 	
-	@Test
+	@Test(priority = 1, description = "User is trying to logout")
 	public void verifyLogoutUponClickingLogout() throws IOException
 	{
 		String userNameValue = ExcelUtility.getStringData(0, 0, "LoginPage");
 		String passwordValue = ExcelUtility.getStringData(0, 1, "LoginPage");
 		LoginPage login= new LoginPage(driver);
-		login.enterUsernameOnUsernameField(userNameValue);
-		login.enterPasswordOnPasswordField(passwordValue);
-		login.loginBtnClick();
-		HomePage home= new HomePage(driver);
+		login.enterUsernameOnUsernameField(userNameValue).enterPasswordOnPasswordField(passwordValue);
+		home=login.loginBtnClick();
 		home.adminIconClick();
-		home.logoutBtnClick();
+		login=home.logoutBtnClick();
 		String expected= "https://groceryapp.uniqassosiates.com/admin/login";
 		String actual= login.actualURL();
 		System.out.println(actual);

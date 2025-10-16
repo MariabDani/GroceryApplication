@@ -13,24 +13,19 @@ import pages.ManageNewsPage;
 import utilities.ExcelUtility;
 
 public class ManagenewsTest extends BaseClass{
-	
+	HomePage home;
+	ManageNewsPage news;
 	@Test
 	public void verifyUserIsAbleCreateNewNews() throws IOException {
 		String userNameValue = ExcelUtility.getStringData(0, 0, "LoginPage");
 		String passwordValue = ExcelUtility.getStringData(0, 1, "LoginPage");
 		LoginPage login= new LoginPage(driver);
-		login.enterUsernameOnUsernameField(userNameValue);
-		login.enterPasswordOnPasswordField(passwordValue);
-		login.loginBtnClick();
-		HomePage home= new HomePage(driver);
-		home.manageNewsMoreInfoClick();
-		ManageNewsPage news= new ManageNewsPage(driver);
-		news.newBtnClick();
+		login.enterUsernameOnUsernameField(userNameValue).enterPasswordOnPasswordField(passwordValue);
+		home=login.loginBtnClick();
+		news=home.manageNewsMoreInfoClick();
 		String newsText= ExcelUtility.getStringData(0, 0, "ManageNewsPage");
-		news.enterNews(newsText);
-		news.saveBtnClick();
+		news.newBtnClick().enterNews(newsText).saveBtnClick();
 		String actual= news.AlertDisplayed();
-		//System.out.println(admin.AlertDisplayed());
 		Assert.assertTrue(actual.contains("News Created Successfully"),Constant.UnabletoAddNewsError);
 		
 		
@@ -41,17 +36,12 @@ public class ManagenewsTest extends BaseClass{
 		String userNameValue = ExcelUtility.getStringData(0, 0, "LoginPage");
 		String passwordValue = ExcelUtility.getStringData(0, 1, "LoginPage");
 		LoginPage login= new LoginPage(driver);
-		login.enterUsernameOnUsernameField(userNameValue);
-		login.enterPasswordOnPasswordField(passwordValue);
-		login.loginBtnClick();
-		HomePage home= new HomePage(driver);
-		home.manageNewsMoreInfoClick();
-		ManageNewsPage news= new ManageNewsPage(driver);
-		news.searchBtnClick();
+		login.enterUsernameOnUsernameField(userNameValue).enterPasswordOnPasswordField(passwordValue);
+		home=login.loginBtnClick();
+		news=home.manageNewsMoreInfoClick();
 		String searchText= ExcelUtility.getStringData(0, 0, "ManageNewsPage");
 		System.out.println(searchText);
-		news.searchTitle(searchText);
-		news.searchNewsClick();
+		news.searchBtnClick().searchTitle(searchText).searchNewsClick();
 		String expected= searchText;
 		String actual = news.searchTable();
 		System.out.println(actual);

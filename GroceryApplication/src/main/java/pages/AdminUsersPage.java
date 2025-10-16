@@ -38,28 +38,33 @@ public class AdminUsersPage {
 	@FindBy(xpath="//i[@class='ace-icon fa fa-sync-alt']") WebElement resetBtn;
 	@FindBy(xpath="//div[contains(@class,'alert') and contains(@class,'alert-dismissible')]") WebElement alert;
 	
-	public void newBtnClick()
+	public AdminUsersPage newBtnClick()
 	{
 		newBtn.click();
+		return this;
 	}
-	public void enterUsernameOnUsernameField(String usernameVal)
+	public AdminUsersPage enterUsernameOnUsernameField(String usernameVal)
 	{
 		username.sendKeys(usernameVal);
+		return this;
 	}
-	public void enterPasswordOnPasswordField(String pass)
+	public AdminUsersPage enterPasswordOnPasswordField(String pass)
 	{
 		password.sendKeys(pass);
+		return this;
 	}
-	public void selectDrpDwn(String drpdwnVal)
+	public AdminUsersPage selectDrpDwn(String drpdwnVal)
 	{
 //		Select select = new Select(userTypeDrpDwn);
 //		select.selectByValue(drpdwnVal);
 		page.selectDropdownWithValue(userTypeDrpDwn, drpdwnVal);
+		return this;
 	}
 	
-	public void saveBtnClick()
+	public AdminUsersPage saveBtnClick()
 	{
 		saveBtn.click();
+		return this;
 	}
 	public String AlertDisplayed()
 	{
@@ -71,32 +76,37 @@ public class AdminUsersPage {
 		return alert.getText();
 	}
 	
-	public void searchBtnClick()
+	public AdminUsersPage searchBtnClick()
 	{
 		searchBtn.click();
+		return this;
 	}
-	public void enterUsernameOnSearchUsernameField(String usernameVal)
+	public AdminUsersPage enterUsernameOnSearchUsernameField(String usernameVal)
 	{
 		searchUserName.sendKeys(usernameVal);
+		return this;
 	}
-	public void searchDrpDwn(String drpdwnVal)
+	public AdminUsersPage searchDrpDwn(String drpdwnVal)
 	{
 //		Select select = new Select(searchDrpDwn);
 //		select.selectByValue(drpdwnVal);
 		page.selectDropdownWithValue(searchDrpDwn, drpdwnVal);
+		return this;
 	}
-	public void searchUserBtnClick()
+	public AdminUsersPage searchUserBtnClick()
 	{
 		srchBtn.click();
+		return this;
 	}
 	
 	public String searchTable()
 	{
 		return searchUser.getText();
 	}
-	public void resetBtnClick()
+	public AdminUsersPage resetBtnClick()
 	{
 		resetBtn.click();
+		return this;
 	}
 	
 	public boolean IsresetHappen() {
@@ -107,8 +117,4 @@ public class AdminUsersPage {
 		return searchUserName.isDisplayed();
 	}
 
-	public String actualURL()
-	{
-		return driver.getCurrentUrl();
-	}
 }

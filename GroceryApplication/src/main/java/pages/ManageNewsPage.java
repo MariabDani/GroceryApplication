@@ -31,19 +31,22 @@ public class ManageNewsPage{
 	@FindBy(xpath="//a[@onclick='click_button(2)']") WebElement searchNews;
 	@FindBy(xpath="//div[contains(@class,'alert') and contains(@class,'alert-dismissible')]") WebElement alertbox;
 	@FindBy(xpath="//table[@class='table table-bordered table-hover table-sm']/tbody/tr[1]/td[1]") WebElement searchResult;
-	public void newBtnClick()
+	public ManageNewsPage newBtnClick()
 	{
 		newBtn.click();
+		return this;
 	}
 	
-	public void enterNews( String news)
+	public ManageNewsPage enterNews( String news)
 	{
 		newsTextArea.sendKeys(news);
+		return this;
 	}
 
-	public void saveBtnClick()
+	public ManageNewsPage saveBtnClick()
 	{
 		saveBtn.click();
+		return this;
 	}
 	public String AlertDisplayed()
 	{
@@ -54,18 +57,21 @@ public class ManageNewsPage{
 //		));
 		return alertbox.getText();
 	}
-	public void searchBtnClick()
+	public ManageNewsPage searchBtnClick()
 	{
 		SearchBtn.click();
+		return this;
 	}
 	
-	public void searchTitle(String news)
+	public ManageNewsPage searchTitle(String news)
 	{
 		SearchTitleTxt.sendKeys(news);
+		return this;
 	}
-	public void searchNewsClick()
+	public ManageNewsPage searchNewsClick()
 	{
 		searchNews.click();
+		return this;
 	}
 	public String searchTable()
 	{

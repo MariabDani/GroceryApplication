@@ -18,14 +18,16 @@ public class HomePage {
 	@FindBy(xpath="//i[@class='ace-icon fa fa-power-off']") WebElement logoutBtn;
 	@FindBy(xpath="//p[text()='Admin Users']/ancestor::div[@class='small-box bg-info']/a") WebElement moreInfolink;
 	@FindBy(xpath="//p[text()='Manage News']/ancestor::div[@class='small-box bg-info']/a") WebElement manageNewMoreInfo;
-	public void adminIconClick()
+	public HomePage adminIconClick()
 	{
 		adminIcon.click();
+		return this;
 	}
 	
-	public void logoutBtnClick()
+	public LoginPage logoutBtnClick()
 	{
 		logoutBtn.click();
+		return new LoginPage(driver);
 	}
 	
 	public String actualURL()
@@ -33,13 +35,15 @@ public class HomePage {
 		return driver.getCurrentUrl();
 	}
 	
-	public void moreInfoLinkClick()
+	public AdminUsersPage moreInfoLinkClick()
 	{
 		moreInfolink.click();
+		return new AdminUsersPage(driver);
 	}
 
-	public void manageNewsMoreInfoClick()
+	public ManageNewsPage manageNewsMoreInfoClick()
 	{
 		manageNewMoreInfo.click();
+		return new ManageNewsPage(driver);
 	}
 }
