@@ -12,13 +12,15 @@
 	<test thread-count="5" name="Test">
 		<classes>
 			<class name="testScripts.LoginTest">
-				<methods>
+			<!--	<methods>
 					<include name="verifyLoginWithValidCredentials"></include>
 				
-					</methods>
+					</methods> -->
 
 			</class>
-
+<class name="testScripts.HomeTest"></class>
+<class name="testScripts.AdminUsersTest"></class>
+<class name="testScripts.ManagenewsTest"></class>
 		</classes>
 	</test>
 
