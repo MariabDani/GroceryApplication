@@ -63,9 +63,8 @@ public class LoginTest extends BaseClass {
 		//String expected = "https://groceryapp.uniqassosiates.com/admin/login";
 		//String actual = login.actualURL();
 		//System.out.println(actual);
-		String expected = "7rmart supermarket";
-		String actual = login.isTitleDisplayed();
-		Assert.assertEquals(actual, expected, Constant.InValidUsernameError);
+		boolean alertBoxDisplayed = login.isAlertboxDisplayed();
+		Assert.assertTrue(alertBoxDisplayed, Constant.InValidUsernameError);
 	}
 
 	@DataProvider(name = "loginProvider")
