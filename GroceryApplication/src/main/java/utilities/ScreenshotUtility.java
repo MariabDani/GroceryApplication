@@ -14,21 +14,22 @@ public class ScreenshotUtility {
 	public void getScreenshot(WebDriver driver, String failedTestCase) throws IOException {
 
 		TakesScreenshot scrShot = (TakesScreenshot) driver;
-		File screenShot = scrShot.getScreenshotAs(OutputType.FILE);
+		File screenShot = scrShot.getScreenshotAs(OutputType.FILE);//captures the screen and stores it as a temporary file object.
 
 		String timeStamp = new SimpleDateFormat("dd_MM_yyyy_hh_mm_ss").format(new Date());
 
 		File f1 = new File(System.getProperty("user.dir") + "//OutputScreenShot");// create file in directory
 		if (!f1.exists()) {
 
-			f1.mkdirs();
+			f1.mkdirs();//creates a folder named OutputScreenShot
 		}
 		String destination = System.getProperty("user.dir") + "//outputScreenShot//" + failedTestCase + timeStamp
 				+ ".png";
+		//This defines where the screenshot will be saved
 		// String destination = f1.getPath() + "//" + failedTestCase + timeStamp +
 		// ".png";
 
 		File finalDestination = new File(destination);
-		FileHandler.copy(screenShot, finalDestination);
+		FileHandler.copy(screenShot, finalDestination);//FileHandler.copy() copies the temporary screenshot file (screenShot) to the final location (finalDestination) in your project folder.
 	}
 }

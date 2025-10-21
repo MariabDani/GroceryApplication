@@ -30,6 +30,8 @@ public class LoginPage {
 	WebElement alertbox;
 	@FindBy(id = "remember")
 	WebElement rememberMe;
+	@FindBy(xpath = "//b[text()='7rmart supermarket']")
+	WebElement loginTitle;
 
 	public LoginPage enterUsernameOnUsernameField(String userNameValue) {
 		username.sendKeys(userNameValue);
@@ -61,4 +63,8 @@ public class LoginPage {
 	public void checkBoxClick() {
 		page.selectCheckBox(rememberMe);
 	}
+	public String isTitleDisplayed() {
+		return loginTitle.getText();
+	}
+	
 }

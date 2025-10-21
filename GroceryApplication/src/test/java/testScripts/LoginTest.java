@@ -60,9 +60,11 @@ public class LoginTest extends BaseClass {
 		// String passwordValue = ExcelUtility.getStringData(3, 1, "LoginPage");
 		LoginPage login = new LoginPage(driver);
 		login.enterUsernameOnUsernameField(userNameValue).enterPasswordOnPasswordField(passwordValue).loginBtnClick();
-		String expected = "https://groceryapp.uniqassosiates.com/admin/login";
-		String actual = login.actualURL();
-		System.out.println(actual);
+		//String expected = "https://groceryapp.uniqassosiates.com/admin/login";
+		//String actual = login.actualURL();
+		//System.out.println(actual);
+		String expected = "7rmart supermarket";
+		String actual = login.isTitleDisplayed();
 		Assert.assertEquals(actual, expected, Constant.InValidUsernameError);
 	}
 
