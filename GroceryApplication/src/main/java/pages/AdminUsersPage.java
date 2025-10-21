@@ -98,6 +98,7 @@ public class AdminUsersPage {
 	}
 
 	public String searchTable() {
+		wait.waitUntilElementIsVisible(driver, searchUser);
 		return searchUser.getText();
 	}
 
