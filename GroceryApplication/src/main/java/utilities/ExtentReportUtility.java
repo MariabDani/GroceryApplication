@@ -9,12 +9,16 @@ public class ExtentReportUtility {
 
 	public synchronized static ExtentReports createExtentReports() {
 
-	ExtentSparkReporter reporter = new ExtentSparkReporter("./extent-reports/extent-report.html");
-	reporter.config().setReportName("7RMartSupermarketProject");
-	extentReports.attachReporter(reporter);
+		ExtentSparkReporter reporter = new ExtentSparkReporter("./extent-reports/extent-report.html"); // name of the
+																										// folder and
+																										// the format of
+																										// the file
+		reporter.config().setReportName("7RMartSupermarketProject");// name of the report
+		extentReports.attachReporter(reporter);
 
-	extentReports.setSystemInfo("Organization", "Obsqura");
-	extentReports.setSystemInfo("Name", " Maria"); // provides context of the report
-	return extentReports;
+		extentReports.setSystemInfo("Organization", "Obsqura");// setsysteminfo- to include additional info in the
+																// report
+		extentReports.setSystemInfo("Name", " Maria"); // provides context of the report
+		return extentReports;
 	}
 }

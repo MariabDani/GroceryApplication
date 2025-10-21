@@ -12,69 +12,72 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import utilities.WaitUtility;
 
-public class ManageNewsPage{
-	
+public class ManageNewsPage {
+
 	public WebDriver driver;
 	WaitUtility wait;
-	public ManageNewsPage(WebDriver driver)
-	{
-		this.driver=driver;
-		this.wait  = new WaitUtility();
+
+	public ManageNewsPage(WebDriver driver) {
+		this.driver = driver;
+		this.wait = new WaitUtility();
 		PageFactory.initElements(driver, this);
 	}
-	@FindBy(xpath="//a[@onclick='click_button(1)']") WebElement newBtn;
-	@FindBy(id="news") WebElement newsTextArea;
-	@FindBy(xpath="//button[@name='create']") WebElement saveBtn;
-	@FindBy(xpath="//a[@onclick='click_button(2)']") WebElement SearchBtn;
-	@FindBy(xpath="//input[@name='un']") WebElement SearchTitleTxt;
-	@FindBy(xpath="//button[@type='submit']") WebElement SearchNews;
-	@FindBy(xpath="//a[@onclick='click_button(2)']") WebElement searchNews;
-	@FindBy(xpath="//div[contains(@class,'alert') and contains(@class,'alert-dismissible')]") WebElement alertbox;
-	@FindBy(xpath="//table[@class='table table-bordered table-hover table-sm']/tbody/tr[1]/td[1]") WebElement searchResult;
-	public ManageNewsPage newBtnClick()
-	{
+
+	@FindBy(xpath = "//a[@onclick='click_button(1)']")
+	WebElement newBtn;
+	@FindBy(id = "news")
+	WebElement newsTextArea;
+	@FindBy(xpath = "//button[@name='create']")
+	WebElement saveBtn;
+	@FindBy(xpath = "//a[@onclick='click_button(2)']")
+	WebElement SearchBtn;
+	@FindBy(xpath = "//input[@name='un']")
+	WebElement SearchTitleTxt;
+	@FindBy(xpath = "//button[@type='submit']")
+	WebElement SearchNews;
+	@FindBy(xpath = "//a[@onclick='click_button(2)']")
+	WebElement searchNews;
+	@FindBy(xpath = "//div[contains(@class,'alert') and contains(@class,'alert-dismissible')]")
+	WebElement alertbox;
+	@FindBy(xpath = "//table[@class='table table-bordered table-hover table-sm']/tbody/tr[1]/td[1]")
+	WebElement searchResult;
+
+	public ManageNewsPage newBtnClick() {
 		newBtn.click();
 		return this;
 	}
-	
-	public ManageNewsPage enterNews( String news)
-	{
+
+	public ManageNewsPage enterNews(String news) {
 		newsTextArea.sendKeys(news);
 		return this;
 	}
 
-	public ManageNewsPage saveBtnClick()
-	{
+	public ManageNewsPage saveBtnClick() {
 		saveBtn.click();
 		return this;
 	}
-	public String AlertDisplayed()
-	{
+
+	public String AlertDisplayed() {
 		wait.waitUntilElementIsVisible(driver, alertbox);
-//		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
-//		WebElement alertBox = wait.until(ExpectedConditions.visibilityOfElementLocated(
-//		    By.xpath("//div[contains(@class,'alert') and contains(@class,'alert-dismissible')]")
-//		));
 		return alertbox.getText();
 	}
-	public ManageNewsPage searchBtnClick()
-	{
+
+	public ManageNewsPage searchBtnClick() {
 		SearchBtn.click();
 		return this;
 	}
-	
-	public ManageNewsPage searchTitle(String news)
-	{
+
+	public ManageNewsPage searchTitle(String news) {
 		SearchTitleTxt.sendKeys(news);
 		return this;
 	}
-	public ManageNewsPage searchNewsClick()
-	{
+
+	public ManageNewsPage searchNewsClick() {
 		searchNews.click();
 		return this;
 	}
-	public String searchTable()
-	{
+
+	public String searchTable() {
 		return searchResult.getText();
 	}
 }

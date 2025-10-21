@@ -11,29 +11,27 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import constants.Constant;
 
 public class ExcelUtility {
-	static FileInputStream f;//inbuilt class- to input an external excel file from outside
+	static FileInputStream f;// inbuilt class- to input an external excel file from outside
 	static XSSFWorkbook w;
 	static XSSFSheet s;
-	
-	public static String getStringData(int a,int b, String sheetName) throws IOException 
-	{
-		f=new FileInputStream(Constant.TestDataFile);
-		w=new XSSFWorkbook(f);
-		s=w.getSheet(sheetName);
-		XSSFRow r=s.getRow(a);
-		XSSFCell c=r.getCell(b);
+
+	public static String getStringData(int a, int b, String sheetName) throws IOException {
+		f = new FileInputStream(Constant.TestDataFile);
+		w = new XSSFWorkbook(f);
+		s = w.getSheet(sheetName);
+		XSSFRow r = s.getRow(a);
+		XSSFCell c = r.getCell(b);
 		return c.getStringCellValue();
 	}
-	public static String getIntegerData(int a,int b, String sheetName) throws IOException 
-	{
-		f=new FileInputStream(Constant.TestDataFile);
-		w=new XSSFWorkbook(f);
-		s=w.getSheet(sheetName);
-		XSSFRow r=s.getRow(a);
-		XSSFCell c=r.getCell(b);
-		int y=(int) c.getNumericCellValue();//type casting
+
+	public static String getIntegerData(int a, int b, String sheetName) throws IOException {
+		f = new FileInputStream(Constant.TestDataFile);
+		w = new XSSFWorkbook(f);
+		s = w.getSheet(sheetName);
+		XSSFRow r = s.getRow(a);
+		XSSFCell c = r.getCell(b);
+		int y = (int) c.getNumericCellValue();// type casting
 		return String.valueOf(y);
 	}
-
 
 }

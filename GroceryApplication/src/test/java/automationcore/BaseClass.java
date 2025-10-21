@@ -23,12 +23,11 @@ public class BaseClass {
 	FileInputStream fin;
 	public WebDriver driver;
 
-	@BeforeMethod(alwaysRun=true)
+	@BeforeMethod(alwaysRun = true)
 	@Parameters("browsers")
-	public void initializeBrowser(String browsers) throws IOException
-	{
-		//System.out.println("Step 1: Starting browser initialization");
-		prop= new Properties();
+	public void initializeBrowser(String browsers) throws IOException {
+		// System.out.println("Step 1: Starting browser initialization");
+		prop = new Properties();
 		fin = new FileInputStream(Constant.ConfigFile);
 		prop.load(fin);
 //		System.out.println(prop.getProperty("url"));
@@ -56,22 +55,22 @@ public class BaseClass {
 
 		driver.get(prop.getProperty("url"));
 		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5) );
-		
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+
 //		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 //		wait.until(ExpectedConditions.elementToBeClickable(showMessageBtn));
 
 	}
-	
-	@AfterMethod(alwaysRun=true)
+
+	@AfterMethod(alwaysRun = true)
 	public void driverQuit(ITestResult iTestResult) throws IOException {
 
 		if (iTestResult.getStatus() == ITestResult.FAILURE) {
 
-		ScreenshotUtility screenShot = new ScreenshotUtility();
-		screenShot.getScreenshot(driver, iTestResult.getName());
+			ScreenshotUtility screenShot = new ScreenshotUtility();
+			screenShot.getScreenshot(driver, iTestResult.getName());
 		}
-		//driver.quit();
+		driver.close();
 
-		} 
+	}
 }
